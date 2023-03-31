@@ -1,12 +1,19 @@
 import 'package:bible_quizzer/diamond/diamond1.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: currentIndex == 0 ?  Column(
         children: [
           Center(
             child: Container(
@@ -247,7 +254,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ],
-      ),
+      ) : const SizedBox(),
         bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -264,6 +271,12 @@ class HomePage extends StatelessWidget {
           ),
         
         ],
+        currentIndex: currentIndex,
+        onTap: (int indext){
+          setState(() {
+            currentIndex = indext;
+          });
+        },
       ),
     );
   }

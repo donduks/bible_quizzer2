@@ -153,23 +153,7 @@ class _Diamond1State extends State<Diamond1> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: Icon(Icons.home),
-          ),
-             BottomNavigationBarItem(
-            label: 'chart',
-            icon: Icon(Icons.bar_chart),
-          ),
-          BottomNavigationBarItem(
-            label: 'setting',
-            icon: Icon(Icons.settings),
-          ),
-        
-        ],
-      ),
+    
     );
   }
 }
