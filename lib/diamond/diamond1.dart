@@ -98,7 +98,15 @@ class _Diamond1State extends State<Diamond1> {
               height: 20,
             ),
             Container(
+              padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
+                boxShadow: const [
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 10,
+                  offset: Offset(0, 5),
+                ),
+              ],
                   color: Colors.teal[400],
                   borderRadius: BorderRadius.circular(10)),
               height: 150,

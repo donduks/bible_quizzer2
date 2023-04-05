@@ -38,8 +38,7 @@ class Brain {
   
      bool isFinished() {
     if (_tracker >= _questionBank.length - 1) {
-      // ignore: avoid_print
-      print('noe retuning true');
+     
       return true;
     } else {
       return false;

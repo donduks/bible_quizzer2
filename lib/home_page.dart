@@ -15,29 +15,35 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: currentIndex == 0 ?  Column(
         children: [
-          Center(
-            child: Container(
-              margin: const EdgeInsets.only(top: 90),
-              padding: const EdgeInsets.all(40),
-              height: 200,
-              width: 350,
-              decoration: BoxDecoration(
-                color: Colors.teal[400],
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+          Container(
+            
+            margin: const EdgeInsets.only(top: 90),
+            padding: const EdgeInsets.all(40),
+            height: 200,
+            width: 350,
+            decoration: BoxDecoration(
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 10,
+                  offset: Offset(0, 5),
                 ),
+              ],
+              color: Colors.teal[400],
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
-              child: const Text(
-                '''FOR GOD SO LOVE THE WORLD THAT HE GAVE HIS ONLY BEGOTTEN SON THAT WHOEVER BELIEVES IN HIM SHOULD NOT PERISH BUT HAVE EVERLASTING LIFE 
-              JOHN 3:16''',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold),
-              ),
+            ),
+            child: const Text(
+              '''FOR GOD SO LOVE THE WORLD THAT HE GAVE HIS ONLY BEGOTTEN SON THAT WHOEVER BELIEVES IN HIM SHOULD NOT PERISH BUT HAVE EVERLASTING LIFE 
+            JOHN 3:16''',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(
