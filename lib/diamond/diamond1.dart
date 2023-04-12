@@ -90,7 +90,7 @@ class _Diamond1State extends State<Diamond1> {
                   child: CircleAvatar(
                       backgroundColor: Colors.teal[400],
                       radius: 30,
-                      child:  Text(marks.toString(),style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white),),),
+                      child:  Text(marks.toString(),style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white),),),
                 ),
               ],
             ),
