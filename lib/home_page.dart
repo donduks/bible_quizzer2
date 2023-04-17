@@ -1,5 +1,6 @@
 import 'package:bible_quizzer/constants.dart';
 import 'package:bible_quizzer/diamond/diamond1.dart';
+import 'package:bible_quizzer/sapphire/sapphire_home.dart';
 
 import 'package:bible_quizzer/widgets.dart';
 import 'package:flutter/material.dart';
@@ -116,7 +117,10 @@ class _HomePageState extends State<HomePage> {
                       text: const Text('Sapphire'),
                       text2: const Text('10-12'),
                       color: Colors.blue,
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const SapphireHome()));
+                      },
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('images/joy.png'),

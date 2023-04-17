@@ -16,30 +16,23 @@ class Diamond1 extends StatefulWidget {
 }
 
 class _Diamond1State extends State<Diamond1> {
-
- String remark = '';
+  String remark = '';
 
   void checkAnswer(bool userPicked) {
     setState(() {
       dynamic correctAnswer = brain.getAnswer();
-      
 
-       if (brain.isFinished() == true && marks  >= 19) {
-       
+      if (brain.isFinished() == true && marks >= 19) {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => const DiaPassed()));
 
         remark = '';
-      }  else if (brain.isFinished() == true && marks < 19) {
-        
+      } else if (brain.isFinished() == true && marks < 19) {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => const DiaFaild()));
-            
 
         remark = '';
-      } 
-      
-      else {
+      } else {
         if (userPicked == correctAnswer) {
           marks = marks + 2;
           remark = 'Correct!  2 points';
@@ -64,13 +57,14 @@ class _Diamond1State extends State<Diamond1> {
               width: double.infinity,
               color: Colors.teal[400],
               child: const Center(
-                  child: Text(
-                'LEVEL 02',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
-              )),
+                child: Text(
+                  'LEVEL 02',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -81,16 +75,23 @@ class _Diamond1State extends State<Diamond1> {
                   width: 100,
                   child: timerDia,
                 ),
-                 SizedBox(
+                SizedBox(
                   child: Text(remark),
                   width: 170,
                 ),
                 // ignore: avoid_unnecessary_containers
                 Container(
                   child: CircleAvatar(
-                      backgroundColor: Colors.teal[400],
-                      radius: 30,
-                      child:  Text(marks.toString(),style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white),),),
+                    backgroundColor: Colors.teal[400],
+                    radius: 30,
+                    child: Text(
+                      marks.toString(),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -100,21 +101,24 @@ class _Diamond1State extends State<Diamond1> {
             Container(
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
-                boxShadow: const [
-                BoxShadow(
-                  color: Colors.black,
-                  blurRadius: 10,
-                  offset: Offset(0, 5),
-                ),
-              ],
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 10,
+                      offset: Offset(0, 5),
+                    ),
+                  ],
                   color: Colors.teal[400],
                   borderRadius: BorderRadius.circular(10)),
               height: 150,
               width: 300,
-              child:  Center(
+              child: Center(
                 child: Text(
                   brain.getQuestions(),
-                  style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -122,12 +126,13 @@ class _Diamond1State extends State<Diamond1> {
               height: 20,
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 checkAnswer(true);
               },
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.green, borderRadius: BorderRadius.circular(20)),
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20)),
                 height: 50,
                 width: 300,
                 child: const Center(
@@ -142,7 +147,7 @@ class _Diamond1State extends State<Diamond1> {
               height: 20,
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 checkAnswer(false);
               },
               child: Container(
@@ -161,7 +166,6 @@ class _Diamond1State extends State<Diamond1> {
           ],
         ),
       ),
-    
     );
   }
 }
