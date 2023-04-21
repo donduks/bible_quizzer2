@@ -58,7 +58,7 @@ class _Diamond1State extends State<Diamond1> {
               color: Colors.teal[400],
               child: const Center(
                 child: Text(
-                  'LEVEL 02',
+                  'DIAMOND',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

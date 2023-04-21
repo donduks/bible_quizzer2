@@ -1,3 +1,5 @@
+import 'package:bible_quizzer/sapphire/sapphire_answers.dart';
+import 'package:bible_quizzer/sapphire/sapphire_brain.dart';
 import 'package:bible_quizzer/sapphire/sapphire_timer.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,9 @@ class SapphireHome extends StatefulWidget {
 }
 
 class _SapphireHomeState extends State<SapphireHome> {
+  int questionIndex = 0;
+  bool answerWasSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +32,7 @@ class _SapphireHomeState extends State<SapphireHome> {
                 color: Colors.teal[400],
                 child: const Center(
                   child: Text(
-                    'LEVEL 02',
+                    'SAPPHIRE',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -65,18 +70,50 @@ class _SapphireHomeState extends State<SapphireHome> {
                 ],
               ),
               Container(
-                height: 50,
-                width: 1000,
-                color: Colors.brown[50],
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(0, 5),
+                      ),
+                    ],
+                    color: Colors.teal[400],
+                    borderRadius: BorderRadius.circular(10)),
+                height: 100,
+                width: 300,
                 child: Center(
                   child: Text(
-                    '',
+                    questions[questionIndex]['question'].toString(),
                     style: TextStyle(
-                        color: Colors.green,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 18),
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              ...(questions[questionIndex]['answers']
+                      as List<Map<String, Object>>)
+                  .map(
+                (answer) => Answers(
+                  answerText: answer['answerText'].toString(),
+                  answerColor: answerWasSelected
+                      ? answer['score'] as bool
+                          ? Colors.green
+                          : Colors.white
+                      : Colors.white,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text('Next Question'),
               ),
             ],
           ),
