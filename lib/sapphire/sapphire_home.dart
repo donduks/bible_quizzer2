@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 int marks2 = 0;
 String remark2 = '';
-final timer2 = const Timer2();
+var timer2 = const Timer2();
 
 class SapphireHome extends StatefulWidget {
   const SapphireHome({super.key});
@@ -15,8 +15,40 @@ class SapphireHome extends StatefulWidget {
 }
 
 class _SapphireHomeState extends State<SapphireHome> {
+  String? scores;
   int questionIndex = 0;
   bool answerWasSelected = false;
+
+  bool end = false;
+  bool correctAnswerSelected = false;
+
+  void reset() {
+    setState(() {
+      questionIndex = 0;
+      answerWasSelected = false;
+      correctAnswerSelected = false;
+
+      marks2;
+      end = false;
+    });
+  }
+
+  void questionAnswered(bool answerScore) {
+    setState(
+      () {
+        answerWasSelected = true;
+        correctAnswerSelected = true;
+        if (answerScore) {
+          marks2 = marks2 + 2;
+          //player.play(AssetSource('cheers.mp3'));
+        } else {
+          marks2--;
+          correctAnswerSelected = false;
+         // player.play(AssetSource('boo.mp3'));
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +118,7 @@ class _SapphireHomeState extends State<SapphireHome> {
                 child: Center(
                   child: Text(
                     questions[questionIndex]['question'].toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
@@ -106,6 +138,13 @@ class _SapphireHomeState extends State<SapphireHome> {
                           ? Colors.green
                           : Colors.white
                       : Colors.white,
+                      answerTaped: (){
+                        if (answerWasSelected) {
+                    return;
+                  }
+
+                  questionAnswered(answer['score'] as bool);
+                      },
                 ),
               ),
               SizedBox(
