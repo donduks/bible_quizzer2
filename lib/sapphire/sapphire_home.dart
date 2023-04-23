@@ -3,6 +3,8 @@ import 'package:bible_quizzer/sapphire/sapphire_brain.dart';
 import 'package:bible_quizzer/sapphire/sapphire_timer.dart';
 import 'package:flutter/material.dart';
 
+import '../home_page.dart';
+
 int marks2 = 0;
 String remark2 = '';
 var timer2 = const Timer2();
@@ -16,11 +18,11 @@ class SapphireHome extends StatefulWidget {
 
 class _SapphireHomeState extends State<SapphireHome> {
   String? scores;
-  int questionIndex = 0;
   bool answerWasSelected = false;
-
+  int questionIndex = 0;
   bool end = false;
   bool correctAnswerSelected = false;
+  var inkwell = const InkWell();
 
   void reset() {
     setState(() {
@@ -44,7 +46,7 @@ class _SapphireHomeState extends State<SapphireHome> {
         } else {
           marks2--;
           correctAnswerSelected = false;
-         // player.play(AssetSource('boo.mp3'));
+          // player.play(AssetSource('boo.mp3'));
         }
       },
     );
@@ -138,20 +140,47 @@ class _SapphireHomeState extends State<SapphireHome> {
                           ? Colors.green
                           : Colors.white
                       : Colors.white,
-                      answerTaped: (){
-                        if (answerWasSelected) {
-                    return;
-                  }
+                  answerTaped: () {
+                    if (answerWasSelected) {
+                      return;
+                    }
 
-                  questionAnswered(answer['score'] as bool);
-                      },
+                    questionAnswered(answer['score'] as bool);
+                  },
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    if (!answerWasSelected) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        (const SnackBar(
+                          content: Text('Please select an answer'),
+                        )),
+                      );
+                      return;
+                    }
+                    questionIndex++;
+                    correctAnswerSelected = false;
+
+                    answerWasSelected = false;
+                    if (questionIndex == questions.length && marks2 < 19) {
+                      questionIndex = 0;
+                      marks2;
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HomePage()));
+                    } else if (questionIndex == questions.length &&
+                        marks2 >= 19) {
+                      questionIndex = 0;
+                      marks2;
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HomePage()));
+                    }
+                  });
+                },
                 child: Text('Next Question'),
               ),
             ],

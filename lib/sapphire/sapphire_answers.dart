@@ -5,7 +5,10 @@ class Answers extends StatelessWidget {
   final Color answerColor;
   final Function answerTaped;
 
-  Answers({required this.answerText, required this.answerColor, required this.answerTaped});
+  Answers(
+      {required this.answerText,
+      required this.answerColor,
+      required this.answerTaped});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,6 @@ class Answers extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           color: answerColor,
-          border: Border.all(color: Colors.teal),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
