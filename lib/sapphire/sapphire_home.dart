@@ -1,5 +1,7 @@
 import 'package:bible_quizzer/sapphire/sapphire_answers.dart';
 import 'package:bible_quizzer/sapphire/sapphire_brain.dart';
+import 'package:bible_quizzer/sapphire/sapphire_fail.dart';
+import 'package:bible_quizzer/sapphire/sapphire_pass.dart';
 import 'package:bible_quizzer/sapphire/sapphire_timer.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +11,17 @@ int marks2 = 0;
 String remark2 = '';
 var timer2 = const Timer2();
 
+bool answerWasSelected = false;
+int questionIndex = 0;
+bool end = false;
+bool correctAnswerSelected = false;
+
+void reset() {
+  marks2 = 0;
+  questionIndex = 0;
+  end = false;
+}
+
 class SapphireHome extends StatefulWidget {
   const SapphireHome({super.key});
 
@@ -17,23 +30,10 @@ class SapphireHome extends StatefulWidget {
 }
 
 class _SapphireHomeState extends State<SapphireHome> {
-  String? scores;
   bool answerWasSelected = false;
   int questionIndex = 0;
   bool end = false;
   bool correctAnswerSelected = false;
-  var inkwell = const InkWell();
-
-  void reset() {
-    setState(() {
-      questionIndex = 0;
-      answerWasSelected = false;
-      correctAnswerSelected = false;
-
-      marks2;
-      end = false;
-    });
-  }
 
   void questionAnswered(bool answerScore) {
     setState(
@@ -169,15 +169,15 @@ class _SapphireHomeState extends State<SapphireHome> {
                     answerWasSelected = false;
                     if (questionIndex == questions.length && marks2 < 19) {
                       questionIndex = 0;
-                      marks2;
+
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                          builder: (context) => const SapphireFailed()));
                     } else if (questionIndex == questions.length &&
                         marks2 >= 19) {
                       questionIndex = 0;
-                      marks2;
+
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                          builder: (context) => const SapphirePassed()));
                     }
                   });
                 },

@@ -14,7 +14,8 @@ class _DiamondTimerState extends State<DiamondTimer> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CircularCountDownTimer(duration: 60,
+          child: CircularCountDownTimer(
+        duration: 60,
         initialDuration: 2,
         controller: CountDownController(),
         width: MediaQuery.of(context).size.width / 8,
@@ -27,13 +28,12 @@ class _DiamondTimerState extends State<DiamondTimer> {
         isReverse: true,
         isReverseAnimation: false,
         isTimerTextShown: true,
-        autoStart: false,
-       onComplete: () {
-         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const Diamond1()));
-       },
-        )
-      ),
+        autoStart: true,
+        onComplete: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const Diamond1()));
+        },
+      )),
     );
   }
 }

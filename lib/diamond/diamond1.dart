@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 Brain brain = Brain();
 int marks = 0;
 var timerDia = const DiamondTimer();
+void reset1() {
+  marks = 0;
+  brain.reset();
+}
 
 class Diamond1 extends StatefulWidget {
   const Diamond1({super.key});
