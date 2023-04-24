@@ -32,6 +32,7 @@ class _DiamondTimerState extends State<DiamondTimer> {
         onComplete: () {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => const Diamond1()));
+              reset1();
         },
       )),
     );
