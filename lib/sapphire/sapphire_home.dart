@@ -44,10 +44,12 @@ class _SapphireHomeState extends State<SapphireHome> {
         correctAnswerSelected = true;
         if (answerScore) {
           marks2 = marks2 + 2;
+          remark2 = 'Correct you got 2 points!';
           //player.play(AssetSource('cheers.mp3'));
         } else {
           marks2--;
           correctAnswerSelected = false;
+          remark2 = 'Wrong you lost 1 point!';
           // player.play(AssetSource('boo.mp3'));
         }
       },
@@ -62,8 +64,7 @@ class _SapphireHomeState extends State<SapphireHome> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 50),
-                height: 70,
+                height: 40,
                 width: double.infinity,
                 color: Colors.teal[400],
                 child: const Center(
@@ -86,8 +87,8 @@ class _SapphireHomeState extends State<SapphireHome> {
                     child: timer2,
                   ),
                   SizedBox(
+                    width: 100,
                     child: Text(remark2),
-                    width: 170,
                   ),
                   // ignore: avoid_unnecessary_containers
                   Container(

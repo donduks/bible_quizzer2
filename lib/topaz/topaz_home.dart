@@ -45,10 +45,12 @@ class _TopazHomeState extends State<TopazHome> {
         correctAnswerSelected = true;
         if (answerScore) {
           marks3 = marks3 + 2;
+          remark3 = 'Correct you got 2 points!';
           //player.play(AssetSource('cheers.mp3'));
         } else {
           marks3--;
           correctAnswerSelected = false;
+          remark3 = 'Wrong you lost 1 point!';
           // player.play(AssetSource('boo.mp3'));
         }
       },
@@ -63,8 +65,7 @@ class _TopazHomeState extends State<TopazHome> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 50),
-                height: 70,
+                height: 40,
                 width: double.infinity,
                 color: Colors.black,
                 child: const Center(
@@ -87,7 +88,7 @@ class _TopazHomeState extends State<TopazHome> {
                     child: timer2,
                   ),
                   SizedBox(
-                    width: 170,
+                    width: 100,
                     child: Text(remark3),
                   ),
                   // ignore: avoid_unnecessary_containers
@@ -131,7 +132,7 @@ class _TopazHomeState extends State<TopazHome> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               ...(questionst[questionIndex]['answers']
                       as List<Map<String, Object>>)
@@ -153,7 +154,7 @@ class _TopazHomeState extends State<TopazHome> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 10,
               ),
               TextButton(
                 onPressed: () {

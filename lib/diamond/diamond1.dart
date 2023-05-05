@@ -82,7 +82,7 @@ class _Diamond1State extends State<Diamond1> {
                 ),
                 SizedBox(
                   child: Text(remark),
-                  width: 170,
+                  width: 100,
                 ),
                 // ignore: avoid_unnecessary_containers
                 Container(

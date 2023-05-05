@@ -22,7 +22,7 @@ class MyWidget extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(left: 20),
         height: 130,
-        width: 150,
+        width: 130,
         decoration: BoxDecoration(
           color: color,
           borderRadius: const BorderRadius.only(

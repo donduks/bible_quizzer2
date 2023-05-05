@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                     kWidthBox,
                     MyWidget(
                         text: const Text('Topaz'),
-                        text2: const Text('13 - '),
+                        text2: const Text('13 + '),
                         color: Colors.brown,
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(

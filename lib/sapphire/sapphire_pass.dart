@@ -2,6 +2,8 @@ import 'package:bible_quizzer/constants.dart';
 import 'package:bible_quizzer/sapphire/sapphire_home.dart';
 import 'package:flutter/material.dart';
 
+import '../topaz/topaz_home.dart';
+
 class SapphirePassed extends StatelessWidget {
   const SapphirePassed({super.key});
 
@@ -46,19 +48,25 @@ class SapphirePassed extends StatelessWidget {
                 )),
               ),
               kHeigthBox2,
-              Container(
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => TopazHome()));
+                },
+                child: Container(
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                      child: Text(
+                    'NEXT LEVEL',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  )),
                 ),
-                child: Center(
-                    child: Text(
-                  'NEXT LEVEL',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
               )
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:bible_quizzer/diamond/dia_failled.dart';
 import 'package:bible_quizzer/diamond/diamond1.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -31,8 +32,7 @@ class _DiamondTimerState extends State<DiamondTimer> {
         autoStart: true,
         onComplete: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => const Diamond1()));
-          reset1();
+              .push(MaterialPageRoute(builder: (context) => const DiaFaild()));
         },
       )),
     );

@@ -15,7 +15,7 @@ class Answerst extends StatelessWidget {
     return InkWell(
       onTap: answerTaped as void Function()?,
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(15),
         margin: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
         width: double.infinity,
         decoration: BoxDecoration(
