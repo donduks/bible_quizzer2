@@ -4,6 +4,8 @@ import 'package:bible_quizzer/home_page.dart';
 import 'package:bible_quizzer/sapphire/sapphire_fail.dart';
 import 'package:bible_quizzer/sapphire/sapphire_home.dart';
 import 'package:bible_quizzer/second_page.dart';
+import 'package:bible_quizzer/topaz/topaz_fail.dart';
+import 'package:bible_quizzer/topaz/topaz_home.dart';
 import 'package:flutter/material.dart';
 
 import 'sapphire/sapphire_pass.dart';

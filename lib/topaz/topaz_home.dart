@@ -66,12 +66,12 @@ class _TopazHomeState extends State<TopazHome> {
                 margin: const EdgeInsets.only(top: 50),
                 height: 70,
                 width: double.infinity,
-                color: Colors.teal[400],
+                color: Colors.black,
                 child: const Center(
                   child: Text(
-                    'SAPPHIRE',
+                    'TOPAZ',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.white70,
                         fontWeight: FontWeight.bold,
                         fontSize: 20),
                   ),
@@ -87,13 +87,13 @@ class _TopazHomeState extends State<TopazHome> {
                     child: timer2,
                   ),
                   SizedBox(
-                    child: Text(remark3),
                     width: 170,
+                    child: Text(remark3),
                   ),
                   // ignore: avoid_unnecessary_containers
                   Container(
                     child: CircleAvatar(
-                      backgroundColor: Colors.teal[400],
+                      backgroundColor: Colors.black,
                       radius: 30,
                       child: Text(
                         marks3.toString(),
@@ -116,7 +116,7 @@ class _TopazHomeState extends State<TopazHome> {
                         offset: Offset(0, 5),
                       ),
                     ],
-                    color: Colors.teal[400],
+                    color: Colors.black,
                     borderRadius: BorderRadius.circular(10)),
                 height: 160,
                 width: 300,
@@ -124,7 +124,7 @@ class _TopazHomeState extends State<TopazHome> {
                   child: Text(
                     questionst[questionIndex]['question'].toString(),
                     style: const TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
@@ -141,8 +141,8 @@ class _TopazHomeState extends State<TopazHome> {
                   answerColor: answerWasSelected
                       ? answer['score'] as bool
                           ? Colors.green
-                          : Colors.white
-                      : Colors.white,
+                          : Colors.white70
+                      : Colors.white70,
                   answerTaped: () {
                     if (answerWasSelected) {
                       return;
@@ -184,7 +184,10 @@ class _TopazHomeState extends State<TopazHome> {
                     }
                   });
                 },
-                child: Text('Next Question'),
+                child: Text(
+                  'Next Question',
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
               FloatingActionButton.extended(
                 onPressed: () {
@@ -194,7 +197,7 @@ class _TopazHomeState extends State<TopazHome> {
                   reset();
                 },
                 label: Text('Restart'),
-                backgroundColor: Colors.teal,
+                backgroundColor: Colors.black,
               ),
             ],
           ),

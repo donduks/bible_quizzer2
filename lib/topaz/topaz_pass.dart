@@ -1,6 +1,9 @@
 import 'package:bible_quizzer/constants.dart';
-import 'package:bible_quizzer/sapphire/sapphire_home.dart';
+import 'package:bible_quizzer/first_page.dart';
+
 import 'package:flutter/material.dart';
+
+import 'topaz_home.dart';
 
 class TopazPassed extends StatelessWidget {
   const TopazPassed({super.key});
@@ -19,7 +22,7 @@ class TopazPassed extends StatelessWidget {
                 color: Colors.teal[400],
                 child: Center(
                   child: Text(
-                    marks2.toString(),
+                    marks3.toString(),
                     style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -46,19 +49,26 @@ class TopazPassed extends StatelessWidget {
                 )),
               ),
               kHeigthBox2,
-              Container(
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const FirstPage()));
+                  reset();
+                },
+                child: Container(
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                      child: Text(
+                    'Home',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  )),
                 ),
-                child: Center(
-                    child: Text(
-                  'NEXT LEVEL',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
               )
             ],
           ),

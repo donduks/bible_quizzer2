@@ -3,6 +3,8 @@ import 'package:bible_quizzer/sapphire/sapphire_home.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 
+import 'topaz_fail.dart';
+
 class TopazTimer extends StatefulWidget {
   const TopazTimer({super.key});
 
@@ -21,18 +23,18 @@ class _TopazTimerState extends State<TopazTimer> {
         controller: CountDownController(),
         width: MediaQuery.of(context).size.width / 8,
         height: MediaQuery.of(context).size.height / 8,
-        ringColor: Colors.grey[300]!,
+        ringColor: Colors.white70,
         ringGradient: null,
-        fillColor: Colors.red,
+        fillColor: Colors.black,
         fillGradient: null,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white70,
         isReverse: true,
         isReverseAnimation: false,
         isTimerTextShown: true,
-        autoStart: false,
+        autoStart: true,
         onComplete: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const SapphireFailed()));
+              MaterialPageRoute(builder: (context) => const TopazFailed()));
         },
       )),
     );

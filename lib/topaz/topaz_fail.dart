@@ -1,5 +1,6 @@
 import 'package:bible_quizzer/constants.dart';
-import 'package:bible_quizzer/sapphire/sapphire_home.dart';
+
+import 'package:bible_quizzer/topaz/topaz_home.dart';
 import 'package:flutter/material.dart';
 
 class TopazFailed extends StatelessWidget {
@@ -19,7 +20,7 @@ class TopazFailed extends StatelessWidget {
                 color: Colors.teal[400],
                 child: Center(
                   child: Text(
-                    'You point ${marks2.toString()} is less than 19',
+                    'You point ${marks3.toString()} is less than 19',
                     style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -48,8 +49,8 @@ class TopazFailed extends StatelessWidget {
               kHeigthBox2,
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => SapphireHome()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const TopazHome()));
                   reset();
                 },
                 child: Container(
