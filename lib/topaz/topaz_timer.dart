@@ -1,21 +1,22 @@
-import 'package:bible_quizzer/diamond/diamond1.dart';
-import 'package:flutter/material.dart';
+import 'package:bible_quizzer/sapphire/sapphire_fail.dart';
+import 'package:bible_quizzer/sapphire/sapphire_home.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:flutter/material.dart';
 
-class DiamondTimer extends StatefulWidget {
-  const DiamondTimer({super.key});
+class TopazTimer extends StatefulWidget {
+  const TopazTimer({super.key});
 
   @override
-  State<DiamondTimer> createState() => _DiamondTimerState();
+  State<TopazTimer> createState() => _TopazTimerState();
 }
 
-class _DiamondTimerState extends State<DiamondTimer> {
+class _TopazTimerState extends State<TopazTimer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
           child: CircularCountDownTimer(
-        duration: 60,
+        duration: 45,
         initialDuration: 2,
         controller: CountDownController(),
         width: MediaQuery.of(context).size.width / 8,
@@ -28,11 +29,10 @@ class _DiamondTimerState extends State<DiamondTimer> {
         isReverse: true,
         isReverseAnimation: false,
         isTimerTextShown: true,
-        autoStart: true,
+        autoStart: false,
         onComplete: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => const Diamond1()));
-          reset1();
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const SapphireFailed()));
         },
       )),
     );

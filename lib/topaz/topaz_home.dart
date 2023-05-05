@@ -1,17 +1,18 @@
 import 'package:bible_quizzer/first_page.dart';
-import 'package:bible_quizzer/sapphire/sapphire_answers.dart';
-import 'package:bible_quizzer/sapphire/sapphire_brain.dart';
-import 'package:bible_quizzer/sapphire/sapphire_fail.dart';
-import 'package:bible_quizzer/sapphire/sapphire_pass.dart';
-import 'package:bible_quizzer/sapphire/sapphire_timer.dart';
+import 'package:bible_quizzer/topaz/topaz_answers.dart';
+
+import 'package:bible_quizzer/topaz/topaz_brain.dart';
+import 'package:bible_quizzer/topaz/topaz_fail.dart';
+
 import 'package:flutter/material.dart';
 
-import '../diamond/diamond1.dart';
-import '../home_page.dart';
+import '../topaz/topaz_brain.dart';
+import 'topaz_pass.dart';
+import 'topaz_timer.dart';
 
-int marks2 = 0;
-String remark2 = '';
-var timer2 = const Timer2();
+int marks3 = 0;
+String remark3 = '';
+var timer2 = const TopazTimer();
 
 bool answerWasSelected = false;
 int questionIndex = 0;
@@ -19,19 +20,19 @@ bool end = false;
 bool correctAnswerSelected = false;
 
 void reset() {
-  marks2 = 0;
+  marks3 = 0;
   questionIndex = 0;
   end = false;
 }
 
-class SapphireHome extends StatefulWidget {
-  const SapphireHome({super.key});
+class TopazHome extends StatefulWidget {
+  const TopazHome({super.key});
 
   @override
-  State<SapphireHome> createState() => _SapphireHomeState();
+  State<TopazHome> createState() => _TopazHomeState();
 }
 
-class _SapphireHomeState extends State<SapphireHome> {
+class _TopazHomeState extends State<TopazHome> {
   bool answerWasSelected = false;
   int questionIndex = 0;
   bool end = false;
@@ -43,10 +44,10 @@ class _SapphireHomeState extends State<SapphireHome> {
         answerWasSelected = true;
         correctAnswerSelected = true;
         if (answerScore) {
-          marks2 = marks2 + 2;
+          marks3 = marks3 + 2;
           //player.play(AssetSource('cheers.mp3'));
         } else {
-          marks2--;
+          marks3--;
           correctAnswerSelected = false;
           // player.play(AssetSource('boo.mp3'));
         }
@@ -86,7 +87,7 @@ class _SapphireHomeState extends State<SapphireHome> {
                     child: timer2,
                   ),
                   SizedBox(
-                    child: Text(remark2),
+                    child: Text(remark3),
                     width: 170,
                   ),
                   // ignore: avoid_unnecessary_containers
@@ -95,7 +96,7 @@ class _SapphireHomeState extends State<SapphireHome> {
                       backgroundColor: Colors.teal[400],
                       radius: 30,
                       child: Text(
-                        marks2.toString(),
+                        marks3.toString(),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -117,11 +118,11 @@ class _SapphireHomeState extends State<SapphireHome> {
                     ],
                     color: Colors.teal[400],
                     borderRadius: BorderRadius.circular(10)),
-                height: 100,
+                height: 160,
                 width: 300,
                 child: Center(
                   child: Text(
-                    questions[questionIndex]['question'].toString(),
+                    questionst[questionIndex]['question'].toString(),
                     style: const TextStyle(
                         color: Colors.black,
                         fontSize: 18,
@@ -132,10 +133,10 @@ class _SapphireHomeState extends State<SapphireHome> {
               SizedBox(
                 height: 15,
               ),
-              ...(questions[questionIndex]['answers']
+              ...(questionst[questionIndex]['answers']
                       as List<Map<String, Object>>)
                   .map(
-                (answer) => Answers(
+                (answer) => Answerst(
                   answerText: answer['answerText'].toString(),
                   answerColor: answerWasSelected
                       ? answer['score'] as bool
@@ -169,17 +170,17 @@ class _SapphireHomeState extends State<SapphireHome> {
                     correctAnswerSelected = false;
 
                     answerWasSelected = false;
-                    if (questionIndex == questions.length && marks2 < 19) {
+                    if (questionIndex == questionst.length && marks3 < 19) {
                       questionIndex = 0;
 
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SapphireFailed()));
-                    } else if (questionIndex == questions.length &&
-                        marks2 >= 19) {
+                          builder: (context) => const TopazFailed()));
+                    } else if (questionIndex == questionst.length &&
+                        marks3 >= 19) {
                       questionIndex = 0;
 
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SapphirePassed()));
+                          builder: (context) => const TopazPassed()));
                     }
                   });
                 },
@@ -189,7 +190,7 @@ class _SapphireHomeState extends State<SapphireHome> {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const FirstPage()));
-                  reset1();
+
                   reset();
                 },
                 label: Text('Restart'),

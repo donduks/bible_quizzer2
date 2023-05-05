@@ -2,6 +2,7 @@ import 'package:bible_quizzer/diamond/dia_failled.dart';
 import 'package:bible_quizzer/diamond/dia_passed.dart';
 import 'package:bible_quizzer/diamond/diamond_ans.dart';
 import 'package:bible_quizzer/diamond/diamond_time.dart';
+import 'package:bible_quizzer/first_page.dart';
 import 'package:flutter/material.dart';
 
 Brain brain = Brain();
@@ -167,9 +168,22 @@ class _Diamond1State extends State<Diamond1> {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 40,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const FirstPage()));
+                reset1();
+              },
+              label: const Text('Restart'),
+              backgroundColor: Colors.teal,
+            ),
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

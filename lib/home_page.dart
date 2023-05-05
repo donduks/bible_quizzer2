@@ -5,6 +5,8 @@ import 'package:bible_quizzer/sapphire/sapphire_home.dart';
 import 'package:bible_quizzer/widgets.dart';
 import 'package:flutter/material.dart';
 
+import 'topaz/topaz_home.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -128,50 +130,19 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     kWidthBox,
-                    Container(
-                      height: 130,
-                      width: 150,
-                      decoration: const BoxDecoration(
+                    MyWidget(
+                        text: const Text('Topaz'),
+                        text2: const Text('13 - '),
                         color: Colors.brown,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.only(top: 8, left: 10),
-                            child: const Text(
-                              'TOPAZ',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const TopazHome()));
+                        },
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('images/teen.png'),
                           ),
-                          Container(
-                            padding: const EdgeInsets.only(top: 2, left: 10),
-                            child: const Text(
-                              '13+ Years',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 12),
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(left: 60),
-                            height: 80,
-                            width: 80,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('images/teen.png'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                        ))
                   ],
                 ),
               ],
