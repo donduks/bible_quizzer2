@@ -1,5 +1,6 @@
 import 'package:bible_quizzer/constants.dart';
 import 'package:bible_quizzer/diamond/diamond1.dart';
+import 'package:bible_quizzer/ruby/rubi_home.dart';
 import 'package:bible_quizzer/sapphire/sapphire_home.dart';
 
 import 'package:bible_quizzer/widgets.dart';
@@ -79,7 +80,10 @@ class _HomePageState extends State<HomePage> {
                               style: kSmallText,
                             ),
                             color: Colors.red,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const RubiHome()));
+                            },
                             decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage('images/girl1.png'),

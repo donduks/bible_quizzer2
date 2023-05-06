@@ -29,7 +29,7 @@ class _RubiTimerState extends State<RubiTimer> {
         isReverse: true,
         isReverseAnimation: false,
         isTimerTextShown: true,
-        autoStart: false,
+        autoStart: true,
         onComplete: () {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => const DiaFaild()));

@@ -4,19 +4,19 @@ import 'rubi_questions.dart';
 class Brain {
   int _tracker = 0;
   final List<Question> _questionBank = [
-    Question('The Old Testament is bigger than the New Testament', true),
-    Question('The Old Testament was written in Greek', false),
-    Question('The final book in the Old Testament is Malachi', true),
-    Question('The  Gospel According to Luke was written by a doctor', true),
-    Question(' Jesus teach the Lords Prayer to the pharasees', false),
-    Question('There are 36 books in the New Testament ', false),
-    Question('The gospel of John is the fouth book of the new testament', true),
+    Question('God is good', true),
+    Question('Solomond killed Goliath', false),
+    Question('Jesus has 16 disciples', false),
+    Question('Jesus is the saviour of the world', true),
+    Question(' God hate sinners', false),
+    Question('Baby Moses was found floating in a basket in the river ', true),
     Question(
-        'The Last Supper was the final meal Jesus shared with his disciples before his crucifixion',
+        'The most important commandment is to love God and love our neighbors as ourselves',
         true),
-    Question('Jesus was born in Jerusalem', false),
-    Question('King Solomon was known for his wisdom and wealth', true),
-    Question('Joshua led the Israelites out of Egypt', false),
+    Question('The first man and woman on earth were named Noah and Eve', false),
+    Question('Jesus prayed in the garden of eden', false),
+    Question('Jesus died for the whole world', true),
+    Question('I am a child of God', true),
   ];
 
   void nextQuestion() {

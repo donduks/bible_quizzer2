@@ -41,7 +41,7 @@ final questions = [
       {'answerText': 'A spider and camel', 'score': false},
       {'answerText': 'A horse, snake, and goat', 'score': false},
       {'answerText': 'A snake and donkey', 'score': true},
-      {'answerText': 'Animals can’t speak', 'score': false},
+      {'answerText': 'Animals can not speak', 'score': false},
     ]
   },
   {
